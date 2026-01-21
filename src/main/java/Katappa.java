@@ -4,12 +4,24 @@ public class Katappa {
 
     public static final String NAME = "Katappa";
     public static String LINE = "___________________________________________________________";
+    private static String[] tasksList = new String[100];
+    private static int totalTasks = 0;
 
-    public static void printBoxed(String message) {
-        String line = "===========================================================";
-        System.out.println("\t" + line);
-        System.out.println("\t║ " + message);
-        System.out.println("\t" + line);
+    private static void printTaskList() {
+
+        if(totalTasks == 0) {
+            System.out.println("\t" + LINE);
+            System.out.println("\t" + "No tasks yet master. Please add tasks, I am at your service.");
+            System.out.println("\t" + LINE);
+
+        }
+
+        for(int i = 0; i < totalTasks; i++) {
+            System.out.println("\t" + LINE);
+            System.out.println("\t" + (i + 1) + ". " + tasksList[i]);
+            System.out.println("\t" + LINE);
+
+        }
     }
 
     public static void main(String[] args) {
@@ -26,9 +38,18 @@ public class Katappa {
 
 
        while((!input.equalsIgnoreCase("bye"))) {
+
+           if(input.equalsIgnoreCase("list")) {
+               printTaskList();
+               input = in.nextLine();
+               continue;
+           }
+
            System.out.println("\t" + LINE);
-           System.out.println("\t" + input);
+           System.out.println("\t" + "Added: " + input);
            System.out.println("\t" + LINE);
+           tasksList[totalTasks] = input;
+           totalTasks++;
            input = in.nextLine();
        }
 
