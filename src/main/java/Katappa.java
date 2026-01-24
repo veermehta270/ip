@@ -105,7 +105,17 @@ public class Katappa {
 
        while((!input.equalsIgnoreCase("bye"))) {
 
-           if (input.equalsIgnoreCase("list")) {
+           if (input.isBlank()) {
+               System.out.println("\t" + LINE);
+               System.out.println("\t" + "My Lord, I do not understand this command, please enter a valid command.");
+               System.out.println("\t" + LINE);
+               input = in.nextLine();
+               continue;
+
+           }
+
+
+           else if (input.equalsIgnoreCase("list")) {
                printTaskList();
                input = in.nextLine();
                continue;
@@ -127,7 +137,6 @@ public class Katappa {
 
                }
            }
-
 
 
            System.out.println("\t" + LINE);
