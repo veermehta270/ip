@@ -25,7 +25,7 @@ public class Katappa {
             if(task.isDone()) {
                 System.out.println("\t" + LINE);
                 System.out.println("\t" + "My Lord, the task already has the status of Done!");
-                System.out.println("\t" + " " + task.getStatusIcon() + " " + task.getDescription());
+                System.out.println("\t" + task);
                 System.out.println("\t" + LINE);
 
             }
@@ -33,7 +33,7 @@ public class Katappa {
                 task.markAsDone();
                 System.out.println("\t" + LINE);
                 System.out.println("\t" + "Nice! I've marked this task as done:");
-                System.out.println("\t" + " " + task.getStatusIcon() + " " + task.getDescription());
+                System.out.println("\t" + task);
                 System.out.println("\t" + LINE);
             }
 
@@ -45,7 +45,7 @@ public class Katappa {
             if(!task.isDone) {
                 System.out.println("\t" + LINE);
                 System.out.println("\t" + "My Lord, the task already has the status of Not Done!");
-                System.out.println("\t" + " " + task.getStatusIcon() + " " + task.getDescription());
+                System.out.println("\t" + task);
                 System.out.println("\t" + LINE);
 
             }
@@ -53,7 +53,7 @@ public class Katappa {
                 task.markAsNotDone();
                 System.out.println("\t" + LINE);
                 System.out.println("\t" + "OK, I've marked this task as not done yet:");
-                System.out.println("\t" + " " + task.getStatusIcon() + " " + task.getDescription());
+                System.out.println("\t" + " " + task);
                 System.out.println("\t" + LINE);
             }
 
