@@ -79,12 +79,14 @@ public class Katappa {
             System.out.println("\t" + LINE);
 
         }
-        System.out.println("\t" + LINE);
-        for(int i = 0; i < totalTasks; i++) {
+        else {
+            System.out.println("\t" + LINE);
+            for (int i = 0; i < totalTasks; i++) {
 
-            System.out.println("\t" + (i + 1) + ". " + tasksList[i].getStatusIcon() + " " + tasksList[i].getDescription());
+                System.out.println("\t" + (i + 1) + ". " + tasksList[i].getStatusIcon() + " " + tasksList[i].getDescription());
+            }
+            System.out.println("\t" + LINE);
         }
-        System.out.println("\t" + LINE);
 
     }
 
