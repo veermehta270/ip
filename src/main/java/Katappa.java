@@ -95,38 +95,36 @@ public class Katappa {
 
 
         if(inputArray[0].equalsIgnoreCase("todo")) {
-            Todo newTask = new Todo(input.substring(4));
-            return newTask;
+            String description = input.substring(4);
+            return new Todo(description);
         }
 
         else if(inputArray[0].equalsIgnoreCase("deadline")) {
             int descriptionStartIndex = 8;
             int byIndex = input.indexOf("/by");
-            Deadline newTask = new Deadline(input.substring(descriptionStartIndex,byIndex), input.substring(byIndex+3));
-            return newTask;
+            String description = input.substring(descriptionStartIndex,byIndex);
+            String by = input.substring(byIndex+3);
+            return new Deadline(description, by);
         }
 
         else if(inputArray[0].equalsIgnoreCase("event")) {
             int descriptionStartIndex = 5;
             int fromIndex = input.indexOf("/from");
             int toIndex = input.indexOf("/to");
-            Event newTask = new Event(input.substring(descriptionStartIndex,fromIndex), input.substring(fromIndex + 5, toIndex), input.substring(toIndex+3));
-            return newTask;
+            String description = input.substring(descriptionStartIndex,fromIndex);
+            String from = input.substring(fromIndex + 5, toIndex);
+            String to = input.substring(toIndex + 3);
+            return new Event(description, from, to);
         }
 
         else {
             return new Task(input);
-
         }
-
-
-
     }
 
     public static void main(String[] args) {
 
         Scanner in = new Scanner(System.in);
-
 
         System.out.println("\t" + LINE);
         System.out.println("\t" + "Namaste! My Lord, I'm " + NAME + " your loyal servant");
@@ -138,55 +136,58 @@ public class Katappa {
 
        while((!input.equalsIgnoreCase("bye"))) {
 
+           String[] inputAsArray = input.split(" ");
+
            if (input.isBlank()) {
                System.out.println("\t" + LINE);
-               System.out.println("\t" + "My Lord, I do not understand this command, please enter a valid command.");
+               System.out.println("\t" + "My Lord, I do not understand this command, please enter" +
+                       " a valid command.");
                System.out.println("\t" + LINE);
-               input = in.nextLine();
-               continue;
 
            }
 
 
            else if (input.equalsIgnoreCase("list")) {
                printTaskList();
-               input = in.nextLine();
-               continue;
-           } else if (input.split(" ")[0].equalsIgnoreCase("mark")) {
 
-               if (isInteger(input.split(" ")[1])) {
-                   markOrUnmark(Integer.parseInt(input.split(" ")[1]), "mark");
-                   input = in.nextLine();
-                   continue;
+           } else if (inputAsArray[0].equalsIgnoreCase("mark")) {
+
+               if (isInteger(inputAsArray[1])) {
+                   markOrUnmark(Integer.parseInt(inputAsArray[1]), "mark");
 
                }
 
-           } else if (input.split(" ")[0].equalsIgnoreCase("unmark")) {
+           } else if (inputAsArray[0].equalsIgnoreCase("unmark")) {
 
-               if (isInteger(input.split(" ")[1])) {
-                   markOrUnmark(Integer.parseInt(input.split(" ")[1]), "unmark");
-                   input = in.nextLine();
-                   continue;
+               if (isInteger(inputAsArray[1])) {
+                   markOrUnmark(Integer.parseInt(inputAsArray[1]), "unmark");
 
                }
            }
 
-           Task newTask = classifyTask(input);
+           else {
 
-           System.out.println("\t" + LINE);
-           System.out.println("\t" + "Got it. I've added this task:");
-           System.out.println("\t" + "\t" + newTask);
-           System.out.println("\t" + "My Lord, now you have " + (totalTasks + 1) + " tasks in the list.");
-           System.out.println("\t" + LINE);
-           tasksList[totalTasks] = newTask;
-           totalTasks++;
+               Task newTask = classifyTask(input);
+
+               System.out.println("\t" + LINE);
+               System.out.println("\t" + "Got it. I've added this task:");
+               System.out.println("\t" + "\t" + newTask);
+               System.out.println(
+                       "\t" + "My Lord, now you have " + (totalTasks + 1) + " tasks in the list.");
+               System.out.println("\t" + LINE);
+               tasksList[totalTasks] = newTask;
+               totalTasks++;
+
+           }
            input = in.nextLine();
+
 
        }
 
 
         System.out.println("\t" + LINE);
-        System.out.println("\t" + "Rest peacefully my Lord, Katappa's sword stays ready for your return.");
+        System.out.println("\t" + "Rest peacefully my Lord, Katappa's sword stays ready for your " +
+                "return.");
         System.out.println("\t" + LINE);
 
     }
