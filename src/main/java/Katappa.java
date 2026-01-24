@@ -83,10 +83,43 @@ public class Katappa {
             System.out.println("\t" + LINE);
             for (int i = 0; i < totalTasks; i++) {
 
-                System.out.println("\t" + (i + 1) + ". " + tasksList[i].getStatusIcon() + " " + tasksList[i].getDescription());
+                System.out.println("\t" + (i + 1) + ". " + tasksList[i]);
             }
             System.out.println("\t" + LINE);
         }
+
+    }
+
+    private static Task classifyTask(String input) {
+        String[] inputArray = input.split(" ");
+
+
+        if(inputArray[0].equalsIgnoreCase("todo")) {
+            Todo newTask = new Todo(input.substring(4));
+            return newTask;
+        }
+
+        else if(inputArray[0].equalsIgnoreCase("deadline")) {
+            int descriptionStartIndex = 8;
+            int byIndex = input.indexOf("/by");
+            Deadline newTask = new Deadline(input.substring(descriptionStartIndex,byIndex), input.substring(byIndex+3));
+            return newTask;
+        }
+
+        else if(inputArray[0].equalsIgnoreCase("event")) {
+            int descriptionStartIndex = 5;
+            int fromIndex = input.indexOf("/from");
+            int toIndex = input.indexOf("/to");
+            Event newTask = new Event(input.substring(descriptionStartIndex,fromIndex), input.substring(fromIndex + 5, toIndex), input.substring(toIndex+3));
+            return newTask;
+        }
+
+        else {
+            return new Task(input);
+
+        }
+
+
 
     }
 
@@ -138,11 +171,14 @@ public class Katappa {
                }
            }
 
+           Task newTask = classifyTask(input);
 
            System.out.println("\t" + LINE);
-           System.out.println("\t" + "Added: " + input);
+           System.out.println("\t" + "Got it. I've added this task:");
+           System.out.println("\t" + "\t" + newTask);
+           System.out.println("\t" + "My Lord, now you have " + (totalTasks + 1) + " tasks in the list.");
            System.out.println("\t" + LINE);
-           tasksList[totalTasks] = new Task(input);
+           tasksList[totalTasks] = newTask;
            totalTasks++;
            input = in.nextLine();
 
