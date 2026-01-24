@@ -26,11 +26,16 @@ public class Task {
 
     public String getStatusIcon() {
         if(this.isDone) {
-            return "[X] ";
+            return "[X]";
         }
         else {
             return "[ ]";
         }
+    }
+
+    @Override
+    public String toString() {
+        return this.getStatusIcon() + " " + this.getDescription().trim();
     }
 
 
