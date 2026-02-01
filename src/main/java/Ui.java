@@ -4,7 +4,7 @@ public class Ui {
 
     // These are constants, so we use 'static final' and Uppercase
     public static final String NAME = "Katappa";
-    public static final String LINE = "=====================================";
+    public static final String LINE = "    =====================================";
     public static final String SPECIAL_LINE = "+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+";
 
     private final Scanner scanner;
@@ -18,14 +18,14 @@ public class Ui {
     }
 
     public void printInBox(String message) {
-        System.out.println("\t" + LINE);
-        System.out.println("\t" + message);
-        System.out.println("\t" + LINE);
+        System.out.println(LINE);
+        System.out.println("    " + message);
+        System.out.println(LINE);
     }
 
     public void showWelcomeMessage() {
-        String welcome = "Namaste! My Lord, I'm " + NAME + ", your loyal servant.\n" +
-                "\tMy sword and my service are yours. How shall I assist you today?";
+        String welcome = "Namaste! My Lord, I'm " + NAME + ", your loyal servant.\n" + "    " +
+                "My sword and my service are yours. How shall I assist you today?";
         printInBox(welcome);
     }
 
@@ -44,7 +44,7 @@ public class Ui {
 
         for (int i = 0; i < count; i++) {
             // Add the task line: e.g., "1. [T][ ] read book"
-            listMessage += "\t" + (i + 1) + ". " + allTasks[i];
+            listMessage += "    " + (i + 1) + ". " + allTasks[i];
 
             // Only add a newline if it's NOT the last task
             if (i < count - 1) {

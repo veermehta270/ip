@@ -15,7 +15,7 @@ public class CommandExecutor {
 
             taskManager.addTask(newTask);
 
-            return "As you command, My Lord. I have added:\n\t" + newTask + "\n\tNow you have " +
+            return "As you command, My Lord. I have added:\n" + "    " + newTask + "\n" + "    " + "Now you have " +
                     taskManager.getTotalTasks() + " tasks.";
 
         case "list":
@@ -27,16 +27,16 @@ public class CommandExecutor {
             int markIndex = Parser.parseIndex(input);
             taskManager.markTaskAsDone(markIndex);
             Task markedTask = taskManager.getTask(markIndex);
-            return "Nice! I've marked this task as done:\n\t" + markedTask;
+            return "Nice! I've marked this task as done:\n" +"    "+  markedTask;
 
         case "unmark":
             int unmarkIndex = Parser.parseIndex(input);
             taskManager.markTaskAsNotDone(unmarkIndex);
             Task unmarkedTask = taskManager.getTask(unmarkIndex);
-            return "OK, I've marked this task as not done yet:\n\t" + unmarkedTask;
+            return "OK, I've marked this task as not done yet:\n" + "    " + unmarkedTask;
 
         case "bye":
-            return "Rest peacefully my Lord, Katappa's sword stays ready\n" + "\tfor your return.";
+            return "Rest peacefully my Lord, Katappa's sword stays ready\n" + "    " +"for your return.";
 
 
         default:
