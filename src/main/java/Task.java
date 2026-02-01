@@ -4,11 +4,11 @@ public class Task {
 
     public Task(String description) {
         this.description = description;
-        this.isDone = false;
+        isDone = false;
     }
 
     public boolean isDone() {
-        return this.isDone;
+        return isDone;
     }
 
     public String getDescription() {
@@ -16,16 +16,16 @@ public class Task {
     }
 
     public void markAsDone() {
-        this.isDone = true;
+        isDone = true;
     }
 
 
     public void markAsNotDone() {
-        this.isDone = false;
+        isDone = false;
     }
 
     public String getStatusIcon() {
-        if (this.isDone) {
+        if (isDone) {
             return "[X]";
         } else {
             return "[ ]";
@@ -34,8 +34,7 @@ public class Task {
 
     @Override
     public String toString() {
-        return this.getStatusIcon() + " " + this.getDescription().trim();
+        return getStatusIcon() + " " + getDescription().trim();
     }
-
 
 }

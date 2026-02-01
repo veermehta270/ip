@@ -11,6 +11,7 @@ public class TaskManager {
     }
 
     public int getTotalTasks() {
+
         return totalTasks;
     }
 
@@ -51,10 +52,12 @@ public class TaskManager {
     }
 
     public Task[] getTaskList() {
+
         return taskList;
     }
 
     public Task getTask(int index) {
+
         return taskList[index - 1];
     }
 }
