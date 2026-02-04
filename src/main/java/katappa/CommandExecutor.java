@@ -1,3 +1,7 @@
+package katappa;
+
+import katappa.task.Task;
+
 public class CommandExecutor {
 
     public static String execute(String commandType, String input, TaskManager taskManager, Ui ui) throws KatappaException {
@@ -33,7 +37,7 @@ public class CommandExecutor {
             return "OK, I've marked this task as not done yet:\n" + "    " + unmarkedTask;
 
         case "bye":
-            return "Rest peacefully my Lord, Katappa's sword stays ready\n" + "    " +"for your return.";
+            return "Rest peacefully my Lord, katappa.Katappa's sword stays ready\n" + "    " +"for your return.";
 
 
         default:

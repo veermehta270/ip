@@ -1,3 +1,7 @@
+package katappa;
+
+import katappa.task.Task;
+
 public class TaskManager {
 
     public static int MAX_NUMBER_OF_TASKS = 100;

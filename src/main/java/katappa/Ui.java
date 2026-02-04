@@ -1,9 +1,13 @@
+package katappa;
+
+import katappa.task.Task;
+
 import java.util.Scanner;
 
 public class Ui {
 
     // These are constants, so we use 'static final' and Uppercase
-    public static final String NAME = "Katappa";
+    public static final String NAME = "katappa.Katappa";
     public static final String LINE = "    =====================================";
     public static final String SPECIAL_LINE = "+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+";
 
@@ -29,7 +33,7 @@ public class Ui {
         printInBox(welcome);
     }
 
-    // This is useful for your CommandExecutor to call!
+    // This is useful for your katappa.CommandExecutor to call!
     public void showResult(String result) {
         printInBox(result);
     }
