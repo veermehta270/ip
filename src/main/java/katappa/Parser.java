@@ -1,3 +1,9 @@
+package katappa;
+
+import katappa.task.Deadline;
+import katappa.task.Event;
+import katappa.task.Task;
+
 public class Parser {
 
 
@@ -17,7 +23,7 @@ public class Parser {
                     throw new KatappaException("My lord, please enter the description of the task you want me to add" +
                             " after \"todo\"");
                 }
-                return new Todo(input.substring(4).trim());
+                return new Deadline.Todo(input.substring(4).trim());
             }
 
             if (type.equalsIgnoreCase("deadline")) {
