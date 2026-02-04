@@ -45,6 +45,8 @@ public class Parser {
             }
 
 
+        } catch (KatappaException e) {
+            throw e;
         } catch (Exception e) {
             throw new KatappaException("My Lord, your command for this " + type + " is incomplete!");
         }

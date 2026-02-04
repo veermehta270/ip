@@ -9,7 +9,7 @@ public class Katappa {
 
         startUp();
         runLoopUntilExit(
-                
+
         );
 
     }
