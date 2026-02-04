@@ -1,9 +1,6 @@
 public class CommandExecutor {
 
-    public static String execute(String commandType,
-                                 String input,
-                                 TaskManager taskManager,
-                                 Ui ui) throws KatappaException {
+    public static String execute(String commandType, String input, TaskManager taskManager, Ui ui) throws KatappaException {
 
         switch (commandType.toLowerCase()) {
         case "todo":
