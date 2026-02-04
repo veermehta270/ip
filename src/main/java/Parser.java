@@ -12,12 +12,21 @@ public class Parser {
     public static Task parseTask(String type, String input) throws KatappaException {
         try {
             if (type.equalsIgnoreCase("todo")) {
+                String description = input.substring(4).trim();
+                if (description.isEmpty()) {
+                    throw new KatappaException("My lord, please enter the description of the task you want me to add" +
+                            " after \"todo\"");
+                }
                 return new Todo(input.substring(4).trim());
             }
 
             if (type.equalsIgnoreCase("deadline")) {
                 int byIndex = input.indexOf("/by");
                 String description = input.substring(8, byIndex).trim();
+                if (description.isEmpty()) {
+                    throw new KatappaException("My lord, please enter the description of the task you want me to add" +
+                            " after \"deadline\"");
+                }
                 String by = input.substring(byIndex + 3).trim();
                 return new Deadline(description, by);
             }
@@ -26,6 +35,10 @@ public class Parser {
                 int fromIndex = input.indexOf("/from");
                 int toIndex = input.indexOf("/to");
                 String description = input.substring(5, fromIndex).trim();
+                if (description.isEmpty()) {
+                    throw new KatappaException("My lord, please enter the description of the task you want me to add" +
+                            " after \"event\"");
+                }
                 String from = input.substring(fromIndex + 5, toIndex).trim();
                 String to = input.substring(toIndex + 3).trim();
                 return new Event(description, from, to);
