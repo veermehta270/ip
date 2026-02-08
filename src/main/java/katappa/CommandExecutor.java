@@ -2,6 +2,8 @@ package katappa;
 
 import katappa.task.Task;
 
+import java.util.ArrayList;
+
 public class CommandExecutor {
     /**
      * Analyzes and executes the command and calls other respective classes as required.
@@ -28,7 +30,7 @@ public class CommandExecutor {
                     taskManager.getTotalTasks() + " tasks.";
 
         case "list":
-            Task[] allTasks = taskManager.getTaskList();
+            ArrayList<Task> allTasks = taskManager.getTaskList();
             int count = taskManager.getTotalTasks();
             return ui.printTaskList(allTasks, count);
 
