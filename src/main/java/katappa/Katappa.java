@@ -6,14 +6,9 @@ public class Katappa {
     private static Ui ui;
 
     public static void main(String[] args) {
-
         startUp();
-        runLoopUntilExit(
-
-        );
-
+        runLoopUntilExit();
     }
-
 
     private static void startUp() {
         taskManager = new TaskManager();

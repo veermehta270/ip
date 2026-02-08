@@ -14,17 +14,5 @@ public class Deadline extends Task {
         return "[D]" + super.toString() + " (by: " + by.trim() + ")";
     }
 
-    public static class Todo extends Task {
 
-        public Todo(String description) {
-            super(description);
-        }
-
-        @Override
-        public String toString() {
-            return "[T]" + super.toString();
-        }
-
-
-    }
 }

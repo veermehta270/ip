@@ -45,6 +45,11 @@ public class TaskManager {
 
     }
 
+    /**
+     * Checks if the given index falls in the range of number of current tasks
+     * @param inputIndex Index given by user
+     * @throws KatappaException Exception to handle invalid indexes
+     */
     private void validateIndex(int inputIndex) throws KatappaException {
         if (totalTasks == 0) {
             throw new KatappaException("There are no tasks yet My Lord. Please add tasks.");

@@ -3,7 +3,15 @@ package katappa;
 import katappa.task.Task;
 
 public class CommandExecutor {
-
+    /**
+     * Analyzes and executes the command and calls other respective classes as required.
+     * @param commandType Type of the command (eg. Todo, Deadline, Event).
+     * @param input Complete text input of the user.
+     * @param taskManager TaskManager object for execution of commands
+     * @param ui User interface object for execution of commands
+     * @return Text output to be printed
+     * @throws KatappaException Handles exceptions
+     */
     public static String execute(String commandType, String input, TaskManager taskManager, Ui ui) throws KatappaException {
 
         switch (commandType.toLowerCase()) {

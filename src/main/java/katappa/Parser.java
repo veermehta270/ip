@@ -1,5 +1,6 @@
 package katappa;
 
+import katappa.task.Todo;
 import katappa.task.Deadline;
 import katappa.task.Event;
 import katappa.task.Task;
@@ -15,6 +16,14 @@ public class Parser {
         return input.split(" ")[0];
     }
 
+    /**
+     * Parses the input data and give out the required Task
+     * @param type Type of the command (eg. Todo, Deadline, Event)
+     * @param input Input text from the user
+     * @return Task based on the type of command and input data
+     * @throws KatappaException Handles exceptions where either the user has typed a wrong command or not given a
+     * proper description
+     */
     public static Task parseTask(String type, String input) throws KatappaException {
         try {
             if (type.equalsIgnoreCase("todo")) {
@@ -23,7 +32,7 @@ public class Parser {
                     throw new KatappaException("My lord, please enter the description of the task you want me to add" +
                             " after \"todo\"");
                 }
-                return new Deadline.Todo(input.substring(4).trim());
+                return new Todo(input.substring(4).trim());
             }
 
             if (type.equalsIgnoreCase("deadline")) {
@@ -59,6 +68,12 @@ public class Parser {
         return new Task(input);
     }
 
+    /**
+     * If task number is valid, converts it to Integer
+     * @param input Input text from the user
+     * @return List number as an Integer datatype
+     * @throws KatappaException Handles error if task number is out of bounds
+     */
     public static int parseIndex(String input) throws KatappaException {
         try {
             String[] parts = input.split(" ");
