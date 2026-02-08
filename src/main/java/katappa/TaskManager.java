@@ -43,6 +43,12 @@ public class TaskManager {
 
     }
 
+    public Task deleteTask(int deleteIndex) throws KatappaException {
+
+        validateIndex(deleteIndex);
+        return taskList.remove(deleteIndex - 1);
+    }
+
     /**
      * Checks if the given index falls in the range of number of current tasks
      * @param inputIndex Index given by user
