@@ -1,0 +1,4 @@
+T;[X];dance
+T;[ ];party
+D;[ ];homework;today
+E;[X];cf;today;tommorow

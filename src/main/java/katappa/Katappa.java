@@ -1,4 +1,6 @@
 package katappa;
+import java.io.File;
+import java.io.IOException;
 
 public class Katappa {
 
@@ -6,12 +8,31 @@ public class Katappa {
     private static Ui ui;
 
     public static void main(String[] args) {
+
         startUp();
         runLoopUntilExit();
+
     }
 
     private static void startUp() {
-        taskManager = new TaskManager();
+        File f = new File(DataFileWriter.DATA_FILE_PATH);
+
+        try {
+            if(f.getParentFile() != null) {
+                f.getParentFile().mkdirs();
+            }
+
+            if (f.exists()) {
+                DataFileReader reader = new DataFileReader();
+                taskManager = new TaskManager(reader.readFileData());
+            } else {
+                f.createNewFile();
+                taskManager = new TaskManager();
+            }
+        } catch (IOException e) {
+            System.out.println("Could not initialize save file");
+        }
+
         ui = new Ui();
         ui.showWelcomeMessage();
     }

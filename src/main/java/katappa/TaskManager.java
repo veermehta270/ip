@@ -2,18 +2,36 @@ package katappa;
 
 import katappa.task.Task;
 import java.util.ArrayList;
+import java.io.FileWriter;
+
+
 
 public class TaskManager {
 
     public static int MAX_NUMBER_OF_TASKS = 100;
-    private ArrayList<Task> taskList = new ArrayList<>();
+    private ArrayList<Task> taskList;
+    private DataFileWriter fileWriter;
 
+
+    protected TaskManager(ArrayList<Task> listOfTasks) {
+        taskList = listOfTasks;
+        fileWriter = new DataFileWriter();
+    }
+
+    protected TaskManager() {
+        taskList = new ArrayList<>();
+        fileWriter = new DataFileWriter();
+
+    }
 
     public void addTask(Task task) {
         taskList.add(task);
+
+        fileWriter.updateTaskData(taskList);
     }
 
     public int getTotalTasks() {
+
         return taskList.size();
     }
 
@@ -27,6 +45,8 @@ public class TaskManager {
         }
 
         task.markAsDone();
+        fileWriter.updateTaskData(taskList);
+
 
     }
 
@@ -40,6 +60,8 @@ public class TaskManager {
         }
 
         task.markAsNotDone();
+        fileWriter.updateTaskData(taskList);
+
 
     }
 
