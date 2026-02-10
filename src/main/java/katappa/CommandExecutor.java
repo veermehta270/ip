@@ -2,6 +2,8 @@ package katappa;
 
 import katappa.task.Task;
 
+import java.util.ArrayList;
+
 public class CommandExecutor {
     /**
      * Analyzes and executes the command and calls other respective classes as required.
@@ -28,7 +30,7 @@ public class CommandExecutor {
                     taskManager.getTotalTasks() + " tasks.";
 
         case "list":
-            Task[] allTasks = taskManager.getTaskList();
+            ArrayList<Task> allTasks = taskManager.getTaskList();
             int count = taskManager.getTotalTasks();
             return ui.printTaskList(allTasks, count);
 
@@ -43,6 +45,12 @@ public class CommandExecutor {
             taskManager.markTaskAsNotDone(unmarkIndex);
             Task unmarkedTask = taskManager.getTask(unmarkIndex);
             return "OK, I've marked this task as not done yet:\n" + "    " + unmarkedTask;
+
+        case "delete":
+            int deleteIndex = Parser.parseIndex(input);
+            Task deletedTask = taskManager.deleteTask(deleteIndex);
+            return "OK, I have deleted the task : \n" +"    " + deletedTask + "\nNow you have " +
+                    taskManager.getTotalTasks() + " tasks.";
 
         case "bye":
             return "Rest peacefully my Lord, katappa.Katappa's sword stays ready\n" + "    " +"for your return.";

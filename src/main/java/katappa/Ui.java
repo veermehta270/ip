@@ -2,6 +2,7 @@ package katappa;
 
 import katappa.task.Task;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Ui {
@@ -39,7 +40,7 @@ public class Ui {
     }
 
 
-    public String printTaskList(Task[] allTasks, int count) {
+    public String printTaskList(ArrayList<Task> allTasks, int count) {
         if (count == 0) {
             return "The scroll is empty, My Lord. No tasks found.";
         }
@@ -48,7 +49,7 @@ public class Ui {
 
         for (int i = 0; i < count; i++) {
             // Add the task line: e.g., "1. [T][ ] read book"
-            listMessage += "    " + (i + 1) + ". " + allTasks[i];
+            listMessage += "    " + (i + 1) + ". " + allTasks.get(i);
 
             // Only add a newline if it's NOT the last task
             if (i < count - 1) {
