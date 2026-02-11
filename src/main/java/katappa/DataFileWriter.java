@@ -5,17 +5,21 @@ import katappa.task.Task;
 import katappa.task.Todo;
 import katappa.task.Event;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class DataFileWriter {
 
-    public static String DATA_FILE_PATH = "data/katappa.txt";
+    static Path filePath = Paths.get("data","tasks.txt");
+
 
     private static void writeToFile(String textToAdd)  {
 
-        try (FileWriter fw = new FileWriter(DATA_FILE_PATH)){
+        try (FileWriter fw = new FileWriter(filePath.toFile())){
 
             fw.write(textToAdd);
         }

@@ -9,15 +9,18 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 
 public class DataFileReader {
 
-    public static String DATA_FILE_PATH = "data/katappa.txt";
+
+    static Path filePath = Paths.get("data","tasks.txt");
 
 
     public ArrayList<Task> readFileData() {
-        File f = new File(DATA_FILE_PATH);
+        File f = filePath.toFile();
 
         if (!f.exists()) {
             return new ArrayList<>();

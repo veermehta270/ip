@@ -15,7 +15,7 @@ public class Katappa {
     }
 
     private static void startUp() {
-        File f = new File(DataFileWriter.DATA_FILE_PATH);
+        File f = DataFileWriter.filePath.toFile();
 
         try {
             if(f.getParentFile() != null) {
