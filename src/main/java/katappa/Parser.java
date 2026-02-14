@@ -58,6 +58,7 @@ public class Parser {
                 String to = input.substring(toIndex + 3).trim();
                 return new Event(description, from, to);
             }
+            throw new KatappaException("My Lord, I do no know what a ' " + type + "' is!");
 
 
         } catch (KatappaException e) {
@@ -65,7 +66,6 @@ public class Parser {
         } catch (Exception e) {
             throw new KatappaException("My Lord, your command for this " + type + " is incomplete!");
         }
-        return new Task(input);
     }
 
     /**

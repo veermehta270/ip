@@ -1,27 +1,41 @@
 package katappa.task;
 
-public class Task {
-    protected String description;
-    protected boolean isDone;
+/**
+ * Abstract class, helps implement different types of classes
+ */
+public abstract class Task {
+    public String description;
+    public boolean isDone;
 
+    /**
+     * Constructor of the Task Class
+     * @param description  description of the task
+     */
     public Task(String description) {
         this.description = description;
         isDone = false;
     }
 
+
     public boolean isDone() {
         return isDone;
     }
+
 
     public String getDescription() {
         return description;
     }
 
+    /**
+     * Mark the status of class as Done
+     */
     public void markAsDone() {
         isDone = true;
     }
 
-
+    /**
+     * Mark the status of class as Not Done
+     */
     public void markAsNotDone() {
         isDone = false;
     }
