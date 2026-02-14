@@ -2,6 +2,8 @@ package katappa;
 
 import katappa.task.Task;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -95,10 +97,34 @@ public class Ui {
         String listMessage = "My Lord, Here are the tasks in your scroll with the text \"" + textToFind + "\" \n";
 
         for (int i = 0; i < count; i++) {
-            // Add the task line: e.g., "1. [T][ ] read book"
             listMessage += "    " + (i + 1) + ". " + allTasks.get(i);
 
-            // Only add a newline if it's NOT the last task
+            if (i < count - 1) {
+                listMessage += "\n";
+            }
+        }
+
+        return listMessage;
+    }
+
+    /**
+     * Prints the list of all tasks due with numbers and proper format
+     * @param allTasks  ArrayList of all the tasks which are due today in the data
+     * @param count Size of the arrayList
+     * @param today due date user want to find deadlines for
+     * @return Formatted string
+     */
+    public String printTaskList(ArrayList<Task> allTasks, int count, LocalDate today) {
+        String todayText = today.format(DateTimeFormatter.ofPattern("dd MM yyyy"));
+        if (count == 0) {
+            return "My Lord, the scroll does not have any task which is due at \"" + todayText + "\"\n";
+        }
+
+        String listMessage = "My Lord, Here are the tasks in your scroll which are due on \"" + todayText + "\" \n";
+
+        for (int i = 0; i < count; i++) {
+            listMessage += "    " + (i + 1) + ". " + allTasks.get(i);
+
             if (i < count - 1) {
                 listMessage += "\n";
             }

@@ -1,7 +1,11 @@
 package katappa;
 
+import katappa.task.Deadline;
 import katappa.task.Task;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 
 /**
@@ -122,6 +126,7 @@ public class TaskManager {
     }
 
     /**
+     * Returns the Array List of tasks with textToFind in the description
      * @param textToFind The text which should be in the description of the task
      * @return Array list of tasks with textToFind in the description
      */
@@ -134,4 +139,19 @@ public class TaskManager {
         }
         return tasksWithTextToFind;
     }
+
+    /**
+     * Gives list of deadlines due today
+     * @param today Date for which user wants to check due tasks
+     * @return ArrayList of due today deadlines
+     */
+    public ArrayList<Task> taskDueToday(LocalDate today) {
+        return taskList.stream()
+                .filter(x -> x instanceof Deadline)
+                .map(y -> (Deadline) y)
+                .filter(z -> z.isDueToday(today))
+                .collect(Collectors.toCollection(ArrayList::new));
+    }
+
+
 }

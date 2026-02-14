@@ -1,3 +1,7 @@
 T;[X];dance
 T;[X];party
 D;[ ];homework;today
+T;[ ];homework cs2113
+E;[X];home;5;6
+D;[ ];hw;2026-02-14
+D;[X];hw;2026-02-14 1800
