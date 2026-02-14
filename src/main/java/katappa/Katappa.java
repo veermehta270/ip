@@ -2,6 +2,9 @@ package katappa;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Main class, runs the main chatbot program from here
+ */
 public class Katappa {
 
     private static TaskManager taskManager;
