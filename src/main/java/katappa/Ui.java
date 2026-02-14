@@ -80,5 +80,32 @@ public class Ui {
         return listMessage;
     }
 
+    /**
+     * Prints the list of all tasks with numbers and proper format
+     * @param allTasks  ArrayList of all the tasks with textToFind in the data
+     * @param count Size of the arrayList
+     * @param textToFind text which should be in the description
+     * @return Formatted string
+     */
+    public String printTaskList(ArrayList<Task> allTasks, int count, String textToFind) {
+        if (count == 0) {
+            return "My Lord, the scroll does not have any task with the text \"" + textToFind + "\"\n";
+        }
+
+        String listMessage = "My Lord, Here are the tasks in your scroll with the text \"" + textToFind + "\" \n";
+
+        for (int i = 0; i < count; i++) {
+            // Add the task line: e.g., "1. [T][ ] read book"
+            listMessage += "    " + (i + 1) + ". " + allTasks.get(i);
+
+            // Only add a newline if it's NOT the last task
+            if (i < count - 1) {
+                listMessage += "\n";
+            }
+        }
+
+        return listMessage;
+    }
+
 
 }

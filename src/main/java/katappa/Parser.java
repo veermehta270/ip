@@ -91,6 +91,21 @@ public class Parser {
             throw new KatappaException("My Lord, please specify a valid task number (e.g mark 1)");
         }
     }
+
+    /**
+     * @param input Input text from the user
+     * @return The text user wants to find
+     * @throws KatappaException Handles situations where there is no text input after find
+     */
+    public static String parseFind(String input) throws KatappaException {
+        try {
+            String[] parts = input.split(" ");
+            return parts[1];
+        } catch (Exception e) {
+            throw new KatappaException("My Lord, please specify the text you want me to find in the task desciptions " +
+                    "(eg. find book)");
+        }
+    }
 }
 
 

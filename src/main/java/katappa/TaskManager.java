@@ -120,4 +120,18 @@ public class TaskManager {
 
         return taskList.get(index - 1);
     }
+
+    /**
+     * @param textToFind The text which should be in the description of the task
+     * @return Array list of tasks with textToFind in the description
+     */
+    public ArrayList<Task> tasksWithText(String textToFind) {
+        ArrayList<Task> tasksWithTextToFind = new ArrayList<>();
+        for(Task task : taskList) {
+            if (task.description.contains(textToFind)) {
+                tasksWithTextToFind.add(task);
+            }
+        }
+        return tasksWithTextToFind;
+    }
 }
