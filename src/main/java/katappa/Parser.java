@@ -5,6 +5,12 @@ import katappa.task.Deadline;
 import katappa.task.Event;
 import katappa.task.Task;
 
+import java.time.LocalDate;
+
+/**
+ * Helps parse various types of inputs and helps check weather the inputs are proper or not, gives error message if
+ * they are not
+ */
 public class Parser {
 
     /**
@@ -102,8 +108,25 @@ public class Parser {
             String[] parts = input.split(" ");
             return parts[1];
         } catch (Exception e) {
-            throw new KatappaException("My Lord, please specify the text you want me to find in the task desciptions " +
+            throw new KatappaException("My Lord, please specify the text you want me to find in the task descriptions" +
+                    " " +
                     "(eg. find book)");
+        }
+    }
+
+    /**
+     * Extracts the date from the user input of due command
+     * @param input User text input
+     * @return Due date which user wants to check deadlines for
+     * @throws KatappaException Handles inappropriate date format
+     */
+    public static LocalDate parseDateInput(String input) throws KatappaException {
+        try {
+            String[] parts = input.split(" ");
+            return LocalDate.parse(parts[1]);
+        } catch (Exception e) {
+            throw new KatappaException("My Lord, please specify the deadline date in the correct format yyyy-MM-dd " +
+                    "(eg. 2026-02-14)");
         }
     }
 }

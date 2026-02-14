@@ -2,6 +2,7 @@ package katappa;
 
 import katappa.task.Task;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -59,6 +60,11 @@ public class CommandExecutor {
             String textToFind = Parser.parseFind(input);
             ArrayList<Task> tasksWithText = taskManager.tasksWithText(textToFind);
             return ui.printTaskList(tasksWithText, tasksWithText.size(),textToFind);
+
+        case "due":
+            LocalDate today = Parser.parseDateInput(input);
+            ArrayList<Task> tasksDueToday = taskManager.taskDueToday(today);
+            return ui.printTaskList(tasksDueToday, tasksDueToday.size(),today);
 
 
         case "bye":
