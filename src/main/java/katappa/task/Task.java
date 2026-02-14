@@ -4,7 +4,13 @@ package katappa.task;
  * Abstract class, helps implement different types of classes
  */
 public abstract class Task {
+    /**
+     * More detailed information about what the task actually it
+     */
     public String description;
+    /**
+     * Status of the task, wether it is done or not done
+     */
     public boolean isDone;
 
     /**
