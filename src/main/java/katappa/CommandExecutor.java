@@ -55,6 +55,12 @@ public class CommandExecutor {
             return "OK, I have deleted the task : \n" +"    " + deletedTask + "\nNow you have " +
                     taskManager.getTotalTasks() + " tasks.";
 
+        case "find":
+            String textToFind = Parser.parseFind(input);
+            ArrayList<Task> tasksWithText = taskManager.tasksWithText(textToFind);
+            return ui.printTaskList(tasksWithText, tasksWithText.size(),textToFind);
+
+
         case "bye":
             return "Rest peacefully my Lord, katappa.Katappa's sword stays ready\n" + "    " +"for your return.";
 
