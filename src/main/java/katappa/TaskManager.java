@@ -2,13 +2,13 @@ package katappa;
 
 import katappa.task.Task;
 import java.util.ArrayList;
-import java.io.FileWriter;
 
 
-
+/**
+ * Manages all the tasks, helps add, update, list and delete the tasks, uses ArrayList<Task> to store all the tasks
+ */
 public class TaskManager {
 
-    public static int MAX_NUMBER_OF_TASKS = 100;
     private ArrayList<Task> taskList;
     private DataFileWriter fileWriter;
 
@@ -24,17 +24,28 @@ public class TaskManager {
 
     }
 
+    /**
+     * @param task Add task to the taskList and updates the data storage
+     */
     public void addTask(Task task) {
         taskList.add(task);
 
         fileWriter.updateTaskData(taskList);
     }
 
+    /**
+     * @return Total number of tasks in the list
+     */
     public int getTotalTasks() {
 
         return taskList.size();
     }
 
+    /**
+     * Helps mark the task as Done
+     * @param inputIndex Index of the task that is to be marked
+     * @throws KatappaException Handles invalid index numbers
+     */
     public void markTaskAsDone(int inputIndex) throws KatappaException {
 
         validateIndex(inputIndex);
@@ -50,6 +61,11 @@ public class TaskManager {
 
     }
 
+    /**
+     * Helps mark the task as Done
+     * @param inputIndex Index of the task that is to be marked
+     * @throws KatappaException Handles invalid index numbers
+     */
     public void markTaskAsNotDone(int inputIndex) throws KatappaException {
 
         validateIndex(inputIndex);
@@ -65,6 +81,12 @@ public class TaskManager {
 
     }
 
+    /**
+     * Deletes the task from the list
+     * @param deleteIndex index of the task to be deleted
+     * @return deleted Task
+     * @throws KatappaException Handles invalid indexes
+     */
     public Task deleteTask(int deleteIndex) throws KatappaException {
 
         validateIndex(deleteIndex);
@@ -86,6 +108,9 @@ public class TaskManager {
         }
     }
 
+    /**
+     * @return List of all the tasks
+     */
     public ArrayList<Task> getTaskList() {
 
         return taskList;

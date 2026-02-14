@@ -4,6 +4,9 @@ import katappa.task.Task;
 
 import java.util.ArrayList;
 
+/**
+ * Helps execute the commands given by the user,
+ */
 public class CommandExecutor {
     /**
      * Analyzes and executes the command and calls other respective classes as required.

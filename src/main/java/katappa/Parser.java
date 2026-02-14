@@ -7,11 +7,20 @@ import katappa.task.Task;
 
 public class Parser {
 
-
+    /**
+     * Checks if the user has given a command to close the program
+     * @param input Input command of the user
+     * @return boolean value indicating whether to switch off program
+     */
     public static boolean isSwitchOffCommand(String input) {
         return input.trim().equalsIgnoreCase("bye");
     }
 
+    /**
+     * Strips the command type from the input message
+     * @param input input message by the user
+     * @return command
+     */
     public static String getCommandType(String input) {
         return input.split(" ")[0];
     }

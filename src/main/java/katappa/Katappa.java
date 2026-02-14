@@ -14,6 +14,9 @@ public class Katappa {
 
     }
 
+    /**
+     * Initializes the data storage file and the Ui class. Gives the starting greeting message
+     */
     private static void startUp() {
         File f = DataFileWriter.filePath.toFile();
 
@@ -37,6 +40,9 @@ public class Katappa {
         ui.showWelcomeMessage();
     }
 
+    /**
+     * Runs the main loop, reads, runs, parses the user input and gives out the result.
+     */
     private static void runLoopUntilExit() {
         boolean isExit = false;
         while (!isExit) {
@@ -51,6 +57,11 @@ public class Katappa {
         }
     }
 
+    /**
+     * Runs the command given by the user and gives appropriate result
+     * @param input Command given by the user
+     * @return The output message given to the user as a result of their input command
+     */
     private static String runCommand(String input) {
         try {
             String commandType = Parser.getCommandType(input);

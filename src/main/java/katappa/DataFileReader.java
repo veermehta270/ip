@@ -13,12 +13,18 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 
+/**
+ * Class responsible for reading the data file and creating the taskList with existing data
+ */
 public class DataFileReader {
 
 
     static Path filePath = Paths.get("data","tasks.txt");
 
 
+    /**
+     * @return ArrayList of all the existing tasks, if no tasks exist then gives empty arraylist.
+     */
     public ArrayList<Task> readFileData() {
         File f = filePath.toFile();
 
@@ -38,6 +44,11 @@ public class DataFileReader {
         return listOfTasks;
     }
 
+    /**
+     * @param line Each line in the data file as scanned by the scanner
+     * @return Task object defined by the line
+     * @throws KatappaException Checks weather the data file is corrupted
+     */
     public Task processData(String line) throws KatappaException {
         Task task;
         String[] contents = line.split(";");

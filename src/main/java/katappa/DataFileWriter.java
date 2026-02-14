@@ -12,11 +12,17 @@ import java.util.ArrayList;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ * Stores data into the data file, if data file doesn't exist then it will create one
+ */
 public class DataFileWriter {
 
     static Path filePath = Paths.get("data","tasks.txt");
 
-
+    /**
+     * Store the task data in the datafile
+     * @param textToAdd Formatted string to be added to the data file
+     */
     private static void writeToFile(String textToAdd)  {
 
         try (FileWriter fw = new FileWriter(filePath.toFile())){
@@ -28,6 +34,11 @@ public class DataFileWriter {
         }
     }
 
+    /**
+     * Convert the task into a formatted string with specific format such that it can be read by the programme
+     * @param task Task to be stored in the data
+     * @return formatted string
+     */
     private String formatTaskString(Task task) {
 
 
@@ -52,6 +63,10 @@ public class DataFileWriter {
 
     }
 
+    /**
+     * Updates the data int the data file as per the ArrayList of tasks provided
+     * @param listOfTasks ArrayList of the task
+     */
     public void updateTaskData(ArrayList<Task> listOfTasks) {
         StringBuilder sb = new StringBuilder();
         for (Task task : listOfTasks) {

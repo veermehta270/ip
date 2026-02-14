@@ -1,1 +1,3 @@
-D;[X];notes;today
+T;[X];dance
+T;[X];party
+D;[ ];homework;today
