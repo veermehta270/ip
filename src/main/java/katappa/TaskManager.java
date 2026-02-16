@@ -94,7 +94,9 @@ public class TaskManager {
     public Task deleteTask(int deleteIndex) throws KatappaException {
 
         validateIndex(deleteIndex);
-        return taskList.remove(deleteIndex - 1);
+        Task deletedTask = taskList.remove(deleteIndex - 1);
+        fileWriter.updateTaskData(taskList);
+        return deletedTask;
     }
 
     /**
