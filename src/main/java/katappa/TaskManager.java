@@ -133,13 +133,9 @@ public class TaskManager {
      * @return Array list of tasks with textToFind in the description
      */
     public ArrayList<Task> tasksWithText(String textToFind) {
-        ArrayList<Task> tasksWithTextToFind = new ArrayList<>();
-        for(Task task : taskList) {
-            if (task.description.contains(textToFind)) {
-                tasksWithTextToFind.add(task);
-            }
-        }
-        return tasksWithTextToFind;
+        return taskList.stream()
+                .filter(t -> t.description.contains(textToFind))
+                .collect(Collectors.toCollection((ArrayList::new)));
     }
 
     /**
