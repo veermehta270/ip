@@ -1,11 +1,9 @@
 package katappa.task;
-import katappa.KatappaException;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.time.temporal.ChronoUnit;
 
 /**
  * Deadline Class which is a child class of Task, helps store tasks of type deadline with time indicator to complete

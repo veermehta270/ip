@@ -5,7 +5,6 @@ import katappa.task.Task;
 import katappa.task.Todo;
 import katappa.task.Event;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;

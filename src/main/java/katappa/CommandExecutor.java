@@ -53,7 +53,7 @@ public class CommandExecutor {
         case "delete":
             int deleteIndex = Parser.parseIndex(input);
             Task deletedTask = taskManager.deleteTask(deleteIndex);
-            return "OK, I have deleted the task : \n" +"    " + deletedTask + "\nNow you have " +
+            return "OK, I have deleted the task : \n" +"    " + deletedTask + "\n    Now you have " +
                     taskManager.getTotalTasks() + " tasks.";
 
         case "find":

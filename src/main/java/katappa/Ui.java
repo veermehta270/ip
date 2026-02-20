@@ -15,7 +15,6 @@ public class Ui {
 
     public static final String NAME = "katappa.Katappa";
     public static final String LINE = "    =====================================";
-    public static final String SPECIAL_LINE = "+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+";
 
     private final Scanner scanner;
 
